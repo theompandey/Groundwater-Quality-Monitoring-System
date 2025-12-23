@@ -1,169 +1,117 @@
-💧 Next-Gen Groundwater Quality Intelligence System
+# 💧 Groundwater Quality Monitoring System
 
-An AI-powered groundwater quality monitoring and decision-support system built using FastAPI, Machine Learning, and Environmental Standards (BIS/WHO).
-This system analyzes groundwater samples, detects anomalies, computes Water Quality Index (WQI), checks regulatory compliance, and generates executive summaries using Large Language Models.
+An AI-powered groundwater quality assessment and decision-support system using Machine Learning and environmental standards (BIS & WHO).  
+This project analyzes groundwater samples, detects anomalies, computes Water Quality Index (WQI), and checks drinking water compliance.
 
-📌 Project Overview
+---
 
-Groundwater is a critical source of drinking and irrigation water. This project provides a smart, ML-driven API to assess groundwater quality using physicochemical parameters and environmental intelligence.
+## 📌 Project Overview
 
-The system combines:
+Groundwater is a major source of drinking and irrigation water. However, contamination due to industrialization, agriculture, and natural geochemical processes poses serious health risks.
 
-Machine Learning models (Autoencoder, PCA, Clustering)
+This project provides an intelligent system that:
+- Evaluates groundwater quality using physicochemical parameters
+- Detects abnormal or unsafe samples using Machine Learning
+- Computes Water Quality Index (WQI)
+- Validates results against BIS and WHO standards
+- Assists decision-making for water safety
 
-Rule-based regulatory checks
+The system is suitable for **academic projects, environmental monitoring, and ML portfolios**.
 
-Water Quality Index (WQI)
+---
 
-AI-generated executive summaries
+## 🎯 Objectives
 
-Interactive visualizations
+- To analyze groundwater quality using scientific parameters  
+- To detect anomalous water samples using ML models  
+- To compute Water Quality Index (WQI)  
+- To check drinking water compliance using BIS & WHO standards  
+- To provide clear, interpretable results for decision support  
 
-It is designed for research, academic projects, environmental monitoring, and decision support systems.
+---
 
-🎯 Key Features
+## 🧠 Machine Learning Models Used
 
-🔍 Sample-based groundwater quality analysis
+### 1️⃣ Autoencoder (PyTorch)
+- Used for anomaly detection  
+- Identifies abnormal groundwater samples that deviate from normal patterns  
 
-🧠 ML-based anomaly detection (Autoencoder)
+### 2️⃣ PCA (Principal Component Analysis)
+- Used for dimensionality reduction  
+- Improves model efficiency and visualization  
 
-📊 Water Quality Index (WQI) calculation
+### 3️⃣ Random Forest Cluster Emulator
+- Assigns groundwater samples to learned quality clusters  
 
-⚖️ BIS & WHO drinking water compliance checks
+---
 
-📉 Groundwater trend visualization
+## 📊 Dataset Description
 
-🧾 AI-generated executive summaries (Groq LLM)
+The dataset contains groundwater physicochemical parameters such as:
+- pH  
+- Total Dissolved Solids (TDS)  
+- Nitrate  
+- Chloride  
+- Sulfate  
+- Fluoride  
+- Iron  
+- Total Hardness  
+- Electrical Conductivity  
 
-🌐 RESTful API with Swagger documentation
+Data preprocessing includes:
+- Missing value handling (median-based)  
+- Feature scaling using StandardScaler  
+- Dimensionality reduction using PCA  
 
-📈 On-demand plots (PNG responses)
+---
 
-🧪 Water Quality Parameters
+## ⚙️ System Architecture
 
-The system supports the following parameters:
+1. Input groundwater sample parameters  
+2. Data preprocessing & scaling  
+3. PCA transformation  
+4. ML-based anomaly detection  
+5. WQI computation  
+6. BIS & WHO compliance checking  
+7. Final quality classification & insights  
 
-pH
+---
 
-Total Dissolved Solids (TDS)
+## 🚀 How to Run the Project
 
-Nitrate
+### 1️⃣ Install Dependencies
+pip install -r requirements.txt
 
-Chloride
+### 2️⃣ Run the Application
+python app.py
 
-Total Hardness
+## 📈 Results
 
-Sulfate
+Accurately detects anomalous groundwater samples
 
-Fluoride
+Computes WQI score and quality category
 
-Iron
+Flags unsafe parameters exceeding permissible limits
 
-Electrical Conductivity
+Helps identify water samples unsuitable for drinking
 
-🧠 Machine Learning Architecture
-1️⃣ Data Processing
+## 🔮 Future Scope
 
-Missing value handling using median statistics
+Integration with real-time IoT groundwater sensors
 
-Feature scaling using StandardScaler
+Expansion to large-scale regional groundwater monitoring
 
-Dimensionality reduction using PCA
+Advanced deep learning models for predictive analysis
 
-2️⃣ Models Used
+Cloud deployment for real-time decision support
 
-Autoencoder (PyTorch)
+Mobile application for field-level usage
 
-Detects anomalous groundwater samples
-
-Random Forest Cluster Emulator
-
-Assigns groundwater samples to learned quality clusters
-
-3️⃣ Water Quality Index (WQI)
-
-Weighted WQI calculation based on standard environmental formulas
-
-Categories:
-
-Excellent
-
-Good
-
-Moderate
-
-Poor / Unsafe
-
-⚖️ Regulatory Standards
-
-The system automatically validates results against:
-
-Bureau of Indian Standards (IS 10500:2012)
-
-World Health Organization (WHO) Guidelines
-
-Critical exceedances (e.g., Nitrate, Fluoride, Iron, pH) are explicitly flagged.
-
-🌐 API Endpoints
-🔹 Root
-GET /
-
-
-Returns API status and available endpoints.
-
-🔹 Mode 1: Location-Based Analysis
-POST /mode1/location-analysis
-
-
-Provides:
-
-Location context
-
-Aquifer & soil information
-
-Groundwater level trends
-
-AI-generated executive summary
-
-🔹 Groundwater Trend Plot
-GET /mode1/trend-plot
-
-
-Returns a PNG visualization of groundwater depletion trends.
-
-🔹 Mode 2: Sample-Based Analysis
-POST /mode2/sample-analysis
-
-
-Returns:
-
-ML anomaly detection results
-
-WQI score & category
-
-Regulatory compliance
-
-Confidence estimation
-
-AI-generated explanation
-
-🔹 Sample Parameter Plot
-POST /mode2/sample-plot
-
-
-Returns a bar chart comparing parameters with BIS/WHO limits.
-
-🔹 Summary Endpoint
-GET /ai-summary
-
-
-Returns a brief system description (for backward compatibility).
-
-🛠️ Technologies Used
+## 🛠 Technologies Used
 
 Python
 
-FastAPI
+Machine Learning
 
 PyTorch
 
@@ -173,71 +121,15 @@ Pandas & NumPy
 
 Matplotlib
 
-Groq LLM API
+Jupyter Notebook
 
-Uvicorn
+## 👨‍🎓 Author
 
-📂 Project Structure
-├── app.py                 # FastAPI backend
-├── requirements.txt       # Python dependencies
-├── main.ipynb             # Data analysis & model training
-├── .gitignore             # Security & ignore rules
-├── README.md              # Project documentation
-
-
-⚠️ Trained ML models, datasets, and environment variables are excluded for security and best practices.
-
-🚀 How to Run Locally
-1️⃣ Install Dependencies
-pip install -r requirements.txt
-
-2️⃣ Set Environment Variables
-
-Create a .env file:
-
-GROQ_API_KEY=your_api_key_here
-USGS_API_KEY=optional
-EARTHDATA_BEARER_TOKEN=optional
-
-3️⃣ Start the API
-uvicorn app:app --reload
-
-4️⃣ Open Swagger UI
-http://127.0.0.1:8000/docs
-
-🌍 Use Cases
-
-Drinking water quality assessment
-
-Groundwater contamination monitoring
-
-Smart water management systems
-
-Environmental impact analysis
-
-Academic & research projects
-
-🏆 Project Level
-
-Advanced | Machine Learning | Environmental Intelligence
-
-Suitable for:
-
-Final-year engineering projects
-
-Research demonstrations
-
-ML & data science portfolios
-
-Environmental analytics platforms
-
-👨‍💻 Author
-
-Shivendra Pandey
+Om Pandey
 Computer Science Engineering
 Aspiring Machine Learning Engineer
 
-📜 Disclaimer
+## 📜 Disclaimer
 
 This system provides decision-support insights based on machine learning and illustrative data.
-It should be used alongside laboratory testing for critical applications.
+It should be used alongside laboratory testing for critical real-world applications.
